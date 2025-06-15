@@ -1,0 +1,30 @@
+name: G2 CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  docker-compose:
+    runs-on: self-hosted  # This ensures it runs on your local runner
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Run docker-compose up --build
+      run: docker-compose up --build -d
+      
+    - name: Wait for services to be ready (optional)
+      run: sleep 30
+      
+    - name: Show running containers
+      run: docker ps
+      
+    # Optional: Clean up after the job
+    - name: Clean up
+      if: always()  # This runs even if previous steps fail
+      run: docker-compose down
