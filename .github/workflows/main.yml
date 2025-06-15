@@ -33,14 +33,14 @@ jobs:
     - name: Health check - API (localhost:3001)
       run: |
         echo "Checking API at localhost:3001..."
-        curl -f http://localhost:3001 || exit 1
+        curl -f http://localhost:3001/api/authors || exit 1
         echo "✅ API is responding"
         
     - name: Application URLs
       run: |
         echo "🎉 Application is ready!"
         echo "Client: http://localhost:3000"
-        echo "API: http://localhost:3001"
+        echo "API: http://localhost:3001/api/authors"
     
     # Optional: Clean up after the job
     # - name: Clean up
