@@ -1,4 +1,4 @@
-smtp_username=USERNAME
-smtp_password=PASSWORD
-smtp_provider=SMTP PROVIDER
-smtp_port=PORT
+smtp_username=cheetooh@gmail.com
+smtp_password=EDE31FCE3B0B7B31E85557D7E5951B8EEB05
+smtp_provider=smtp.elasticemail.com
+smtp_port=2525
